@@ -10,25 +10,16 @@ function Navbar() {
     setIsMobileMenuOpen(false)
   }
 
-  const links = [
-    { label: 'Home', sectionId: 'home' },
-    { label: 'About', sectionId: 'about' },
-    { label: 'Skills', sectionId: 'skills' },
-    { label: 'Projects', sectionId: 'projects' },
-    { label: 'Contact', sectionId: 'contact' },
-  ]
 
   return (
     <nav id="navbar" aria-label="Main navigation">
       <div className="nav-brand"><span>Jingyi Wang</span></div>
       <ul id="nav-menu" className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-        {links.map(({ label, sectionId }) => (
-          <li key={sectionId}>
-            <a href={`#${sectionId}`} className="nav-link" onClick={(event) => handleNavClick(event, sectionId)}>
-              {label}
-            </a>
-          </li>
-        ))}
+        <li><a href="#home" className="nav-link" onClick={(event) => handleNavClick(event, 'home')}>Home</a></li>
+        <li><a href="#about" className="nav-link" onClick={(event) => handleNavClick(event, 'about')}>About</a></li>
+        <li><a href="#skills" className="nav-link" onClick={(event) => handleNavClick(event, 'skills')}>Skills</a></li>
+        <li><a href="#projects" className="nav-link" onClick={(event) => handleNavClick(event, 'projects')}>Projects</a></li>
+        <li><a href="#contact" className="nav-link" onClick={(event) => handleNavClick(event, 'contact')}>Contact</a></li>
       </ul>
       <button
         type="button"

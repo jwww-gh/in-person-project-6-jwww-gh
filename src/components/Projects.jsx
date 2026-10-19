@@ -45,13 +45,6 @@ const projects = [
   },
 ]
 
-const filters = [
-  { value: 'all', label: 'All Projects' },
-  { value: 'frontend', label: 'Frontend' },
-  { value: 'fullstack', label: 'Full-Stack' },
-  { value: 'design', label: 'Design' },
-  { value: 'webapp', label: 'Web App' },
-]
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -64,17 +57,11 @@ function Projects() {
       <div className="container">
         <h2>Featured Projects</h2>
         <div className="filter-buttons">
-          {filters.map(({ value, label }) => (
-            <button
-              key={value}
-              type="button"
-              className={`filter-btn ${activeFilter === value ? 'active' : ''}`}
-              aria-pressed={activeFilter === value}
-              onClick={() => setActiveFilter(value)}
-            >
-              {label}
-            </button>
-          ))}
+          <button type="button" className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveFilter('all')}>All Projects</button>
+          <button type="button" className={`filter-btn ${activeFilter === 'frontend' ? 'active' : ''}`} onClick={() => setActiveFilter('frontend')}>Frontend</button>
+          <button type="button" className={`filter-btn ${activeFilter === 'fullstack' ? 'active' : ''}`} onClick={() => setActiveFilter('fullstack')}>Full-Stack</button>
+          <button type="button" className={`filter-btn ${activeFilter === 'design' ? 'active' : ''}`} onClick={() => setActiveFilter('design')}>Design</button>
+          <button type="button" className={`filter-btn ${activeFilter === 'webapp' ? 'active' : ''}`} onClick={() => setActiveFilter('webapp')}>Web App</button>
         </div>
         <div className="projects-grid">
           {filteredProjects.map((project) => (
